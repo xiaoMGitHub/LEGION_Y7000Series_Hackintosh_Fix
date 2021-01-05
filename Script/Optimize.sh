@@ -23,6 +23,8 @@ init(){
 	sudo curl -s -o $TMP_PATH$ALC_DAEMON_FILE "$GIT_URL/ALCPlugFix/$ALC_DAEMON_FILE"
 	sudo curl -s -o $TMP_PATH$TIME_FIX_FILE "$GIT_URL/TimeSynchronization/$TIME_FIX_FILE"
 	sudo curl -s -o $TMP_PATH$TIME_DAEMON_FILE "$GIT_URL/TimeSynchronization/$TIME_DAEMON_FILE"
+    sudo curl -s -o $TMP_PATH$NUMLOCK_FIX_FILE "$GIT_URL/NumLockFix/$NUMLOCK_FIX_FILE"
+    sudo curl -s -o $TMP_PATH$NUMLOCK_DAEMON_FILE "$GIT_URL/NumLockFix/$NUMLOCK_DAEMON_FILE"
 	
 	if [ ! -d "$BIN_PATH" ] ; then
 		mkdir "$BIN_PATH" ;
