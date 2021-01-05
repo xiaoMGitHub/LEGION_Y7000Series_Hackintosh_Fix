@@ -52,7 +52,7 @@ ALCPlugFix(){
 	sudo launchctl load -w $DAEMON_PATH$ALC_DAEMON_FILE
 }
 
-localtime-toggle(){
+localtime_toggle(){
 	sudo cp $TMP_PATH$TIME_FIX_FILE $BIN_PATH
 	sudo cp $TMP_PATH$TIME_DAEMON_FILE $DAEMON_PATH
 	sudo chmod +x $BIN_PATH$TIME_FIX_FILE
@@ -83,7 +83,7 @@ clear_cache(){
 fixAll(){
 	ALCPlugFix
 	numlock
-	localtime-toggle
+	localtime_toggle
 }
 
 menu(){
@@ -91,6 +91,8 @@ menu(){
 ************************************************************************************
                                                                                    
     https://github.com/xiaoMGitHub/LEGION_Y7000Series_Hackintosh/releases  
+
+                              QQ群：477839538
                                                                                   
 ************************************************************************************
 "
@@ -121,7 +123,7 @@ Select(){
 	   echo ""
 	   Select
        ;;
-    3) localtime-toggle
+    3) localtime_toggle
 	   echo "已经修复 Win/OSX 时间不同步"
 	   echo ""
 	   Select
