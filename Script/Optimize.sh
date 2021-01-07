@@ -79,13 +79,13 @@ numlock(){
 
 clear_cache(){
 	sudo kextcache -i /
-	echo "done"
 }
 
 fixAll(){
 	ALCPlugFix
 	numlock
 	localtime_toggle
+    clear_cache
 }
 
 menu(){
@@ -106,9 +106,11 @@ menu(){
 	echo ""
     echo "3、修复 Win/OSX 时间不同步"
 	echo ""
-	echo "4、全部修复上述问题"
+	echo "4、清除缓存"
+    echo ""
+	echo "5、全部修复上述问题"
 	echo ""
-	echo "5、退出"
+	echo "6、退出"
 	echo ""
 }
 
@@ -130,12 +132,17 @@ Select(){
 	   echo ""
 	   Select
        ;;
-	4) fixAll
+	4) clear_cache
+       echo "已经重建缓存"
+	   echo ""
+       Select
+       ;;
+	5) fixAll
 	   echo "已经修复上述问题"
 	   echo ""
 	   Select
        ;;
-	5) exit 0
+	6) exit 0
        ;;
     *) echo "输入错误";
 	   echo ""
@@ -150,8 +157,6 @@ main(){
 	menu
 	
 	Select
-	
-	clear_cache
 }
 
 main
